@@ -1,0 +1,20 @@
+#include <stdio.h>
+
+int main() {
+    int start, end;
+    scanf("%d %d", &start, &end); // Read input values
+
+    for (int i = start; i <= end; i++) {
+        int temp = i;
+        while (temp != 0) {
+            int m = temp % 10;  // Last digit
+            int n = temp / 10;  // Remaining number
+            temp = temp / 10;   // Reduce temp for next iteration
+
+            if ((m + n) + (m * n) == i) {
+                printf("%d\n", i);
+            }
+        }
+    }
+    return 0;
+}
