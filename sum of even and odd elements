@@ -1,0 +1,48 @@
+ #include<stdio.h>
+ #include<stdlib.h>
+ struct node
+ {
+     int data ;
+     struct node*next;
+     
+ };
+ void add(struct node*head)
+ {
+     struct node*last=head;
+     while(last->next!=NULL){
+         last=last->next;
+     }
+     struct node*createnode=malloc(sizeof(struct node));
+     scanf("%d",&createnode->data);
+     last->next=createnode;
+     createnode->next=NULL;
+     
+ }
+ void display(struct node*head){
+     struct node*temp=head->next;
+      int a=0;
+      int b=0;
+      while(temp!=NULL){
+          if(temp->data%2==0){
+              a+=temp->data;
+          }
+          else{
+              b+=temp->data;
+              
+          }
+          temp=temp->next;
+          
+      }
+      printf("even=%d\n",a);
+      printf("odd=%d\n",b);
+ }
+ int main()
+ {
+     struct node*head=malloc(sizeof(struct node));
+     head->next=NULL;
+     add(head);
+     add(head);
+     add(head);
+     display(head);
+     return 0;
+ }
